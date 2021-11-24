@@ -1,10 +1,12 @@
 const $container = document.getElementById('container')
 const $monthSelector = document.getElementById('monthSelector')
+const $daySelector = document.getElementById('daySelector')
+const $yearSelector = document.getElementById('yearSelector')
 const today = new Date()
+const futureTime = new Date()
 
 
 const $currentTime = document.getElementById('currentTime')
-const $date = document.getElementById('date')
 const $months = document.getElementById('months')
 const $day = document.getElementById('day')
 const $year = document.getElementById('year')
@@ -12,20 +14,8 @@ const $hours = document.getElementById('hours')
 const $minutes = document.getElementById('minutes')
 
 
-// const month = {
-//     january: 'January',
-//     february: 'February',
-//     march: 'March',
-//     april: 'April',
-//     may: 'May',
-//     june: 'June',
-//     july: 'July',
-//     august: 'august',
-//     september: 'September',
-//     october:'October',
-//     november: 'November',
-//     december: 'December'
-// }
+
+
 
 const month = [
     'January',
@@ -42,12 +32,14 @@ const month = [
     'December'
 ]
 
+//function to get the timer counting down
+
 
 //Function to update the time
-function updateTime(){
-    $day.textContent = today.getDay()
-    $year.textContent = today.getFullYear()
-}
+// function updateTime(){
+//     $day.textContent = today.getDay()
+//     $year.textContent = today.getFullYear()
+// }
 
 //Function for month and year selection
 
@@ -63,63 +55,122 @@ $monthSelector.addEventListener('change', function(){
 switch ($monthSelector.value){
 case '0':
     today.setMonth(0)
-    $currentTime.innerText = today
+    console.log(today.getDay())
     break
 
     case '1':
         today.setMonth(1)
-        $currentTime.innerText = today
+        console.log(today.getDay())
     break
    
     case '2':
         today.setMonth(2)
-        $currentTime.innerText = today
+
+        
     break
    
     case '3':
         today.setMonth(3)
-        $currentTime.innerText = today
+ 
     break
     
     case '4':
         today.setMonth(4)
-        $currentTime.innerText = today
+
     break
    
     case '5':
         today.setMonth(5)
-        $currentTime.innerText = today
+     
     break
     
     case '6':
         today.setMonth(6)
-        $currentTime.innerText = today
+   
     break
    
     case '7':
         today.setMonth(7)
-        $currentTime.innerText = today
+      
     break
     
     case '8':
         today.setMonth(8)
-        $currentTime.innerText = today
+    
     break
    
     case '9':
         today.setMonth(9)
-        $currentTime.innerText = today
+ 
     break
    
     case '10':
         today.setMonth(10)
-        $currentTime.innerText = today
+    
+        console.log(today.getDate())
     break
     
     case '11':
         today.setMonth(11)
-        $currentTime.innerText = today
+   
     break
 }
+$currentTime.innerText = today 
 })
 
+$yearSelector.addEventListener('change', function (){
+    switch ($yearSelector.value){
+        case '0':
+            today.setFullYear(2021)
+         
+            console.log(today.getFullYear())
+            break 
+            case '1':
+                today.setFullYear(2022)
+            
+                console.log(today.getFullYear()+1)
+                break 
+                case '2':
+                    today.setFullYear(2023)
+                  
+                    console.log(today.getFullYear()+2)
+                    break 
+                    case '3':
+                        today.setFullYear(2024)
+                
+                        console.log(today.getFullYear()+3)
+                        break 
+                        case '4':
+                            today.setFullYear(2025)
+         
+                            console.log(today.getFullYear()+4)
+                            break 
+                            case '5':
+                                today.setFullYear(2026)
+    
+                                console.log(today.getFullYear()+5)
+                                break 
+                                case '6':
+                                    today.setFullYear(2027)
+   
+                                    console.log(today.getFullYear()+6)
+                                    break 
+                                    case '7':
+                                        today.setFullYear(2028)
+
+                                        console.log(today.getFullYear()+7)
+                                        break 
+                                        case '8':
+                                            today.setFullYear(2029)
+
+                                            console.log(today.getFullYear()+8)
+                                            break
+                                            case '9':
+                                                today.setFullYear(2030)
+                                                console.log(today.getFullYear()+9)
+                                                break
+                                                
+        }
+
+        $currentTime.innerText = today   
+})

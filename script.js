@@ -4,16 +4,12 @@ const $daySelector = document.getElementById('daySelector')
 const $yearSelector = document.getElementById('yearSelector')
 const $form = document.getElementById('form')
 const today = new Date()
-const futureTime = new Date()
+const futureTime = new Date(2021, 10, 29, 0, 0)
 const date = new Date()
 
 
 const $currentTime = document.getElementById('currentTime')
 const $months = document.getElementById('months')
-const $day = document.getElementById('day')
-const $year = document.getElementById('year')
-const $hours = document.getElementById('hours')
-const $minutes = document.getElementById('minutes')
 
 
 
@@ -48,6 +44,35 @@ const month = [
 const daysInMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 
 
+//countdown
+
+const difference = futureTime.getTime() - today.getTime()
+
+function toDays(ms){
+    return Math.floor (ms / 1000 / 60 / 60/ 24)
+}
+
+function toHours(ms){
+const days = toDays(ms)
+const hours = Math.floor (ms/1000/60/60)
+const hoursLeft = hours - (days *24)
+
+return hoursLeft
+}
+
+function toMinutes(ms){
+    const days = toDays(ms)
+    const hours = toHours(ms)
+    const minutes = Math.floor(ms/1000/60)
+    
+    const minutesLeft = minutes - (hours *60) - (days * 24 * 60)
+
+    return minutesLeft
+}
+
+console.log(`day:${toDays(difference)}`)
+console.log(`hours:${toHours(difference)}`)
+console.log(`minutes:${toMinutes(difference)}`)
 
 
 $monthSelector.addEventListener('change', function(){

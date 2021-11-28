@@ -2,8 +2,10 @@ const $container = document.getElementById('container')
 const $monthSelector = document.getElementById('monthSelector')
 const $daySelector = document.getElementById('daySelector')
 const $yearSelector = document.getElementById('yearSelector')
+const $form = document.getElementById('form')
 const today = new Date()
 const futureTime = new Date()
+const date = new Date()
 
 
 const $currentTime = document.getElementById('currentTime')
@@ -12,8 +14,6 @@ const $day = document.getElementById('day')
 const $year = document.getElementById('year')
 const $hours = document.getElementById('hours')
 const $minutes = document.getElementById('minutes')
-
-
 
 
 
@@ -43,134 +43,183 @@ const month = [
 
 //Function for month and year selection
 
-function setMonth(month){
-
-}
 
 
 const daysInMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 
 
+
+
 $monthSelector.addEventListener('change', function(){
 switch ($monthSelector.value){
 case '0':
-    today.setMonth(0)
-    console.log(today.getDay())
+    date.setMonth(0)
+    //   date.setFullYear(2021)
+    //   date.setFullYear(2022)
+    console.log(date.getDate())
     break
 
     case '1':
-        today.setMonth(1)
-        console.log(today.getDay())
+        date.setMonth(1)
+        console.log(date.getDate())
     break
    
     case '2':
-        today.setMonth(2)
-
+        date.setMonth(2)
+        console.log(date.getDate())
         
     break
    
     case '3':
-        today.setMonth(3)
+        date.setMonth(3)
  
     break
     
     case '4':
-        today.setMonth(4)
+        date.setMonth(4)
 
     break
    
     case '5':
-        today.setMonth(5)
+        date.setMonth(5)
      
     break
     
     case '6':
-        today.setMonth(6)
+        date.setMonth(6)
    
     break
    
     case '7':
-        today.setMonth(7)
+        date.setMonth(7)
       
     break
     
     case '8':
-        today.setMonth(8)
+        date.setMonth(8)
     
     break
    
     case '9':
-        today.setMonth(9)
+        date.setMonth(9)
  
     break
    
     case '10':
-        today.setMonth(10)
-    
-        console.log(today.getDate())
+        date.setMonth(10)
+        // date.setDate(0)  
+        // console.log(date.getDate())
     break
     
     case '11':
-        today.setMonth(11)
-   
+        date.setMonth(11)
+        // date.setDate(0) 
+        // console.log(date.getDate())
     break
 }
-$currentTime.innerText = today 
+$currentTime.innerText = date 
 })
 
 $yearSelector.addEventListener('change', function (){
     switch ($yearSelector.value){
         case '0':
-            today.setFullYear(2021)
-         
-            console.log(today.getFullYear())
+            date.setFullYear(2021)
+            // date.setMonth(0)
+            // date.setMonth(1)
+            // date.setMonth(2)
+            // date.setMonth(3)
+            // date.setMonth(4)
+            // date.setMonth(5)
+            // date.setMonth(6)
+            // date.setMonth(7)
+            // date.setMonth(8)
+            // date.setMonth(9)
+            // date.setMonth(10)
+            // date.setMonth(11)
             break 
             case '1':
-                today.setFullYear(2022)
+                date.setFullYear(2022)
             
-                console.log(today.getFullYear()+1)
+              
                 break 
                 case '2':
-                    today.setFullYear(2023)
+                    date.setFullYear(2023)
                   
-                    console.log(today.getFullYear()+2)
+                 
                     break 
                     case '3':
-                        today.setFullYear(2024)
+                        date.setFullYear(2024)
                 
-                        console.log(today.getFullYear()+3)
+                   
                         break 
                         case '4':
-                            today.setFullYear(2025)
+                            date.setFullYear(2025)
          
-                            console.log(today.getFullYear()+4)
+                       
                             break 
                             case '5':
-                                today.setFullYear(2026)
+                                date.setFullYear(2026)
     
-                                console.log(today.getFullYear()+5)
                                 break 
                                 case '6':
-                                    today.setFullYear(2027)
+                                    date.setFullYear(2027)
    
-                                    console.log(today.getFullYear()+6)
                                     break 
                                     case '7':
-                                        today.setFullYear(2028)
+                                        date.setFullYear(2028)
 
-                                        console.log(today.getFullYear()+7)
+                                    
                                         break 
                                         case '8':
-                                            today.setFullYear(2029)
+                                            date.setFullYear(2029)
 
-                                            console.log(today.getFullYear()+8)
+                                     
                                             break
                                             case '9':
-                                                today.setFullYear(2030)
-                                                console.log(today.getFullYear()+9)
-                                                break
+                                                date.setFullYear(2030)
                                                 
+                                                break                                               
         }
 
-        $currentTime.innerText = today   
+        $currentTime.innerText = date   
 })
+
+// $daySelector.addEventListener('change', function(){
+//     switch ($daySelector.value){
+
+//     }
+// })
+
+for (let upto29 = 0; upto29 <30; upto29++){
+$daySelector.innerHTML = `<select id="daySelector">
+<option value="0">1</option>
+<option value="1">2</option>
+<option value="2">3</option>
+<option value="3">4</option>
+<option value="4">5</option>
+<option value="5">6</option>
+<option value="6">7</option>
+<option value="7">8</option>
+<option value="8">9</option>
+<option value="9">10</option>
+<option value="10">11</option>
+<option value="11">12</option>
+<option value="12">13</option>
+<option value="13">14</option>
+<option value="14">15</option>
+<option value="15">16</option>
+<option value="16">17</option>
+<option value="17">18</option>
+<option value="16">19</option>
+<option value="17">20</option>
+<option value="18">21</option>
+<option value="19">22</option>
+<option value="20">23</option>
+<option value="21">24</option>
+<option value="22">25</option>
+<option value="23">26</option>
+<option value="24">27</option>
+<option value="25">28</option>
+<option value="26">29</option>
+</select>`
+}

@@ -48,3 +48,29 @@ table {
 }
 
 /* The actual start of the css */
+
+html{
+margin: auto;
+width: auto;
+text-align: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form{
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+header{
+	background-color: antiquewhite;
+}
+h1{
+	font-size: 30px;
+	padding: 1em;
+}
+
+#timer{
+	font-size: 20px;
+	margin-top:4rem;
+}
+

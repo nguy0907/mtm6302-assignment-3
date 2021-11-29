@@ -6,11 +6,11 @@ const $form = document.getElementById('form')
 const $timer = document.getElementById('timer')
 
 const today = new Date()
-const futureTime = new Date()
-const date = new Date()
 
 
-const $currentTime = document.getElementById('currentTime')
+
+
+const $selectedDate = document.getElementById('selectedDate')
 const $months = document.getElementById('months')
 
 
@@ -46,25 +46,22 @@ const month = [
 const daysInMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 
 
-$currentTime.innerText = today
+// $currentTime.innerText = today
 
 $monthSelector.addEventListener('change', function () {
     switch ($monthSelector.value) {
         case '0':
             futureTime.setMonth(0)
-            //   date.setFullYear(2021)
-            //   date.setFullYear(2022)
-            console.log(futureTime.getDate())
+        
             break
 
         case '1':
             futureTime.setMonth(1)
-            console.log(futureTime.getDate())
+   
             break
 
         case '2':
             futureTime.setMonth(2)
-            console.log(futureTime.getDate())
 
             break
 
@@ -100,87 +97,26 @@ $monthSelector.addEventListener('change', function () {
 
         case '9':
             futureTime.setMonth(9)
-
+            futureTime.setDate(31) 
+            console.log(futureTime.getDate())
             break
 
         case '10':
             futureTime.setMonth(10)
-            // date.setDate(0)  
-            // console.log(date.getDate())
+            futureTime.setDate(30)  
+              console.log(futureTime.getDate())
             break
 
         case '11':
             futureTime.setMonth(11)
-            // date.setDate(0) 
-            // console.log(date.getDate())
+            futureTime.setDate(31) 
+            console.log(futureTime.getDate())
             break
     }
-    $currentTime.innerText = futureTime
+    $selectedDate.innerText = futureTime
 })
 
-$yearSelector.addEventListener('change', function () {
-    switch ($yearSelector.value) {
-        case '0':
-            futureTime.setFullYear(2021)
-            // date.setMonth(0)
-            // date.setMonth(1)
-            // date.setMonth(2)
-            // date.setMonth(3)
-            // date.setMonth(4)
-            // date.setMonth(5)
-            // date.setMonth(6)
-            // date.setMonth(7)
-            // date.setMonth(8)
-            // date.setMonth(9)
-            // date.setMonth(10)
-            // date.setMonth(11)
-            break
-        case '1':
-            futureTime.setFullYear(2022)
 
-
-            break
-        case '2':
-            futureTime.setFullYear(2023)
-
-
-            break
-        case '3':
-            futureTime.setFullYear(2024)
-
-
-            break
-        case '4':
-            futureTime.setFullYear(2025)
-
-
-            break
-        case '5':
-            futureTime.setFullYear(2026)
-
-            break
-        case '6':
-            futureTime.setFullYear(2027)
-
-            break
-        case '7':
-            futureTime.setFullYear(2028)
-
-
-            break
-        case '8':
-            futureTime.setFullYear(2029)
-
-
-            break
-        case '9':
-            futureTime.setFullYear(2030)
-
-            break
-    }
-
-    $currentTime.innerText = futureTime
-})
 
 // $daySelector.addEventListener('change', function(){
 //     switch ($daySelector.value){
@@ -224,7 +160,8 @@ for (let upto29 = 0; upto29 < 30; upto29++) {
 
 //countdown
 
-const difference = futureTime.getTime() - today.getTime()
+const futureTime = new Date(2021, 10, 30,0,0)
+let difference = futureTime.getTime() - today.getTime()
 
 function toDays(ms) {
     return Math.floor(ms / 1000 / 60 / 60 / 24)
@@ -248,10 +185,11 @@ function toMinutes(ms) {
   
 let TimerCountdown = undefined
 
-let timer = futureTime
 TimerCountdown = setInterval(function(){
-    timer--
-    console.log(timer)
+    difference -= 1000
+    console.log(`day:${toDays(difference)}`)
+    console.log(`hours:${toHours(difference)}`)
+    console.log(`minutes:${toMinutes(difference)}`)
 }, 1000)
   
   
@@ -259,13 +197,15 @@ TimerCountdown = setInterval(function(){
 
 }
 
-console.log(`day:${toDays(difference)}`)
-console.log(`hours:${toHours(difference)}`)
-console.log(`minutes:${toMinutes(difference)}`)
+function toSeconds(ms){
+
+}
+
+
 
 timer.innerHTML = `
-<p>day:${toDays(difference)}</p>
+<p>day: ${toDays(difference)}</p>
 <br> </br>
-<p>hours:${toHours(difference)}</p>
+<p>hours: ${toHours(difference)}</p>
 <br> </br>
-<p>minutes:${toMinutes(difference)}</p>`
+<p>minutes: ${toMinutes(difference)}</p>`

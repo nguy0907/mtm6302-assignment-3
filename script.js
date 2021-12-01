@@ -4,11 +4,10 @@ const $daySelector = document.getElementById('daySelector')
 const $yearSelector = document.getElementById('yearSelector')
 const $form = document.getElementById('form')
 const $timer = document.getElementById('timer')
+const $showdate = document.getElementById('showdate')
 
 const today = new Date()
-const futureTime = new Date()
-
-
+const futureTime = new Date(2021,11,2,0,0)
 
 const $selectedDate = document.getElementById('selectedDate')
 const $months = document.getElementById('months')
@@ -30,6 +29,9 @@ const month = [
     'December'
 ]
 
+//Local Storage
+localStorage.setItem('month',$monthSelector.value)
+
 //function to get the timer counting down
 
 
@@ -47,9 +49,6 @@ const month = [
 
 
 // $currentTime.innerText = today
-
-
-
 
 
 
@@ -124,13 +123,11 @@ $monthSelector.addEventListener('change', function () {
             console.log(futureTime.getDate())
             break
     }
-    $selectedDate.innerText = futureTime
+  
 })
 
 function upto29days (){
     
-   $daySelector.innerHTML += ` <option value="0">${daysInMonth[1]}</option>
-    ` 
  $daySelector.innerHTML = `<select id="daySelector">
 <option value="0">${daysInMonth[0]}</option>
 <option value="1">${daysInMonth[1]}</option>
@@ -241,56 +238,71 @@ function upto31days (){
  </select>` 
  }
 
-
+$showdate.addEventListener('click', function(){
+    $selectedDate.innerText = futureTime
+    console.log(`Date: ${localStorage.getItem('month')}`)
+})
 
 //countdown
 
 
-// let difference = futureTime.getTime() - today.getTime()
+let difference = futureTime.getTime() - today.getTime()
 
-// function toDays(ms) {
-//     return Math.floor(ms / 1000 / 60 / 60 / 24)
-// }
+function toDays(ms) {
+    return Math.floor(ms / 1000 / 60 / 60 / 24)
+}
 
-// function toHours(ms) {
-//     const days = toDays(ms)
-//     const hours = Math.floor(ms / 1000 / 60 / 60)
-//     const hoursLeft = hours - (days * 24)
+function toHours(ms) {
+    const days = toDays(ms)
+    const hours = Math.floor(ms / 1000 / 60 / 60)
+    const hoursLeft = hours - (days * 24)
 
-//     return hoursLeft
-// }
+    return hoursLeft
+}
 
-// function toMinutes(ms) {
-//     const days = toDays(ms)
-//     const hours = toHours(ms)
-//     const minutes = Math.floor(ms / 1000 / 60)
+function toMinutes(ms) {
+    const days = toDays(ms)
+    const hours = toHours(ms)
+    const minutes = Math.floor(ms / 1000 / 60)
 
-//     const minutesLeft = minutes - (hours * 60) - (days * 24 * 60)
+    const minutesLeft = minutes - (hours * 60) - (days * 24 * 60)
 
+    return minutesLeft
+
+}  
+
+function toSeconds(ms){
+    const days = toDays(ms)
+    const hours = toHours(ms)
+    const minutes = toMinutes(ms)
+    const seconds = Math.floor(ms / 1000)
+
+    const secondsleft = seconds - minutes - (hours * 60) - (days * 24 * 60)
+
+
+return secondsleft 
+}
+
+let TimerCountdown = undefined
+
+TimerCountdown = setInterval(function(){
+    difference -= 1000
+   timer.innerHTML = `
+<p>day: ${toDays(difference)}</p>
+<br> </br>
+<p>hours: ${toHours(difference)}</p>
+<br> </br>
+<p>minutes: ${toMinutes(difference)}</p>
+<br> </br>
+<p>seconds: ${toSeconds(difference)}</p>
+`
+}, 1000)
   
-// let TimerCountdown = undefined
-
-// TimerCountdown = setInterval(function(){
-//     difference -= 1000
-//     console.log(`day:${toDays(difference)}`)
-//     console.log(`hours:${toHours(difference)}`)
-//     console.log(`minutes:${toMinutes(difference)}`)
-// }, 1000)
   
-  
-//     return minutesLeft
-
-// }
-
-// function toSeconds(ms){
-
-// }
 
 
 
-// timer.innerHTML = `
-// <p>day: ${toDays(difference)}</p>
-// <br> </br>
-// <p>hours: ${toHours(difference)}</p>
-// <br> </br>
-// <p>minutes: ${toMinutes(difference)}</p>`
+
+
+
+

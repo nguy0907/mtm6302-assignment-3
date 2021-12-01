@@ -13,8 +13,8 @@ const futureTime = new Date()
 const $selectedDate = document.getElementById('selectedDate')
 const $months = document.getElementById('months')
 
-
-
+const year = [2021,2022]
+const daysInMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 const month = [
     'January',
     'February',
@@ -43,7 +43,7 @@ const month = [
 
 
 
-const daysInMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+
 
 
 // $currentTime.innerText = today
@@ -113,64 +113,133 @@ $monthSelector.addEventListener('change', function () {
             futureTime.setMonth(10)
             futureTime.setDate(30)  
               console.log(futureTime.getDate())
-              console.log('hit')
+          
             break
 
         case '11':
+            upto30days()
+
             futureTime.setMonth(11)
             futureTime.setDate(31) 
             console.log(futureTime.getDate())
-            console.log('hi')
             break
     }
     $selectedDate.innerText = futureTime
 })
 
-
-
-// $daySelector.addEventListener('change', function(){
-//     switch ($daySelector.value){
-
-//     }
-// })
 function upto29days (){
     
+   $daySelector.innerHTML += ` <option value="0">${daysInMonth[1]}</option>
+    ` 
+ $daySelector.innerHTML = `<select id="daySelector">
+<option value="0">${daysInMonth[0]}</option>
+<option value="1">${daysInMonth[1]}</option>
+<option value="2">${daysInMonth[2]}</option>
+<option value="3">${daysInMonth[3]}</option>
+<option value="4">${daysInMonth[4]}</option>
+<option value="5">${daysInMonth[5]}</option>
+<option value="6">${daysInMonth[6]}</option>
+<option value="7">${daysInMonth[7]}</option>
+<option value="8">${daysInMonth[8]}</option>
+<option value="9">${daysInMonth[9]}</option>
+<option value="10">${daysInMonth[10]}</option>
+<option value="11">${daysInMonth[11]}</option>
+<option value="12">${daysInMonth[12]}</option>
+<option value="13">${daysInMonth[13]}</option>
+<option value="14">${daysInMonth[14]}</option>
+<option value="15">${daysInMonth[15]}</option>
+<option value="16">${daysInMonth[16]}</option>
+<option value="17">${daysInMonth[17]}</option>
+<option value="18">${daysInMonth[18]}</option>
+<option value="19">${daysInMonth[19]}</option>
+<option value="20">${daysInMonth[20]}</option>
+<option value="21">${daysInMonth[21]}</option>
+<option value="22">${daysInMonth[22]}</option>
+<option value="23">${daysInMonth[23]}</option>
+<option value="24">${daysInMonth[24]}</option>
+<option value="25">${daysInMonth[25]}</option>
+<option value="26">${daysInMonth[26]}</option>
+<option value="27">${daysInMonth[27]}</option>
+<option value="28">${daysInMonth[28]}</option>
+<option value="29">${daysInMonth[29]}</option>
 
-
-for (let upto29 = 0; upto29 < 30; upto29++) {
-    $daySelector.innerHTML = `<select id="daySelector">
-<option value="0">1</option>
-<option value="1">2</option>
-<option value="2">3</option>
-<option value="3">4</option>
-<option value="4">5</option>
-<option value="5">6</option>
-<option value="6">7</option>
-<option value="7">8</option>
-<option value="8">9</option>
-<option value="9">10</option>
-<option value="10">11</option>
-<option value="11">12</option>
-<option value="12">13</option>
-<option value="13">14</option>
-<option value="14">15</option>
-<option value="15">16</option>
-<option value="16">17</option>
-<option value="17">18</option>
-<option value="16">19</option>
-<option value="17">20</option>
-<option value="18">21</option>
-<option value="19">22</option>
-<option value="20">23</option>
-<option value="21">24</option>
-<option value="22">25</option>
-<option value="23">26</option>
-<option value="24">27</option>
-<option value="25">28</option>
-<option value="26">29</option>
 </select>` 
 }
+
+function upto30days(){
+$daySelector.innerHTML = `<select id="daySelector">
+<option value="0">${daysInMonth[0]}</option>
+<option value="1">${daysInMonth[1]}</option>
+<option value="2">${daysInMonth[2]}</option>
+<option value="3">${daysInMonth[3]}</option>
+<option value="4">${daysInMonth[4]}</option>
+<option value="5">${daysInMonth[5]}</option>
+<option value="6">${daysInMonth[6]}</option>
+<option value="7">${daysInMonth[7]}</option>
+<option value="8">${daysInMonth[8]}</option>
+<option value="9">${daysInMonth[9]}</option>
+<option value="10">${daysInMonth[10]}</option>
+<option value="11">${daysInMonth[11]}</option>
+<option value="12">${daysInMonth[12]}</option>
+<option value="13">${daysInMonth[13]}</option>
+<option value="14">${daysInMonth[14]}</option>
+<option value="15">${daysInMonth[15]}</option>
+<option value="16">${daysInMonth[16]}</option>
+<option value="17">${daysInMonth[17]}</option>
+<option value="18">${daysInMonth[18]}</option>
+<option value="19">${daysInMonth[19]}</option>
+<option value="20">${daysInMonth[20]}</option>
+<option value="21">${daysInMonth[21]}</option>
+<option value="22">${daysInMonth[22]}</option>
+<option value="23">${daysInMonth[23]}</option>
+<option value="24">${daysInMonth[24]}</option>
+<option value="25">${daysInMonth[25]}</option>
+<option value="26">${daysInMonth[26]}</option>
+<option value="27">${daysInMonth[27]}</option>
+<option value="28">${daysInMonth[28]}</option>
+<option value="29">${daysInMonth[29]}</option>
+<option value="30">${daysInMonth[30]}</option>
+
+</select>` 
 }
+
+
+
+function upto31days (){
+  $daySelector.innerHTML = `<select id="daySelector">
+ <option value="0">${daysInMonth[0]}</option>
+ <option value="1">${daysInMonth[1]}</option>
+ <option value="2">${daysInMonth[2]}</option>
+ <option value="3">${daysInMonth[3]}</option>
+ <option value="4">${daysInMonth[4]}</option>
+ <option value="5">${daysInMonth[5]}</option>
+ <option value="6">${daysInMonth[6]}</option>
+ <option value="7">${daysInMonth[7]}</option>
+ <option value="8">${daysInMonth[8]}</option>
+ <option value="9">${daysInMonth[9]}</option>
+ <option value="10">${daysInMonth[10]}</option>
+ <option value="11">${daysInMonth[11]}</option>
+ <option value="12">${daysInMonth[12]}</option>
+ <option value="13">${daysInMonth[13]}</option>
+ <option value="14">${daysInMonth[14]}</option>
+ <option value="15">${daysInMonth[15]}</option>
+ <option value="16">${daysInMonth[16]}</option>
+ <option value="17">${daysInMonth[17]}</option>
+ <option value="18">${daysInMonth[18]}</option>
+ <option value="19">${daysInMonth[19]}</option>
+ <option value="20">${daysInMonth[20]}</option>
+ <option value="21">${daysInMonth[21]}</option>
+ <option value="22">${daysInMonth[22]}</option>
+ <option value="23">${daysInMonth[23]}</option>
+ <option value="24">${daysInMonth[24]}</option>
+ <option value="25">${daysInMonth[25]}</option>
+ <option value="26">${daysInMonth[26]}</option>
+ <option value="27">${daysInMonth[27]}</option>
+ <option value="28">${daysInMonth[28]}</option>
+ <option value="29">${daysInMonth[29]}</option>
+ 
+ </select>` 
+ }
 
 
 

@@ -309,32 +309,8 @@ $daySelector.addEventListener('change', function () {
 })
 
 
-// function getLocalTime(time){
-//     let UTCTime = new Date()
-//     const offsets = month[time]
 
-//     let hours = parseInt(UTCTime.slice(0, 2)) + offset
-
-//     if (hours >= 24) {
-//         hours -= 24
-//     } else if (hours < 0) {
-//         hours += 24
-//     }
-// }
-
-
-
-// function showdata(){
-//     $selectedDate.innerText = futureTime + ` 
-//     <p id='time-display'>${getLocalTime(city)}</p>
-//     <button id='update'>Update</button>`
-
-//     document,getElementById('update').addEventListener('click', function (){
-
-//     })
-
-// }
-
+//For the timer, I used a bit of W3school and combined it with what we did for that lecture.
 
 $showdate.addEventListener('click', function () {
     $selectedDate.innerText = futureTime

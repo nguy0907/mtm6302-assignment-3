@@ -5,6 +5,9 @@ const $yearSelector = document.getElementById('yearSelector')
 const $form = document.getElementById('form')
 const $timer = document.getElementById('timer')
 const $showdate = document.getElementById('showdate')
+const $stop = document.getElementById('stop')
+const $stopTimer = document.getElementById('stopTimer')
+
 
 const today = new Date()
 const futureTime = new Date()
@@ -306,45 +309,6 @@ $daySelector.addEventListener('change', function () {
 })
 
 
-
-// function upto29days (){
-
-//  $daySelector.innerHTML = `<select id="daySelector">
-// <option value="0">${daysInMonth[0]}</option>
-// <option value="1">${daysInMonth[1]}</option>
-// <option value="2">${daysInMonth[2]}</option>
-// <option value="3">${daysInMonth[3]}</option>
-// <option value="4">${daysInMonth[4]}</option>
-// <option value="5">${daysInMonth[5]}</option>
-// <option value="6">${daysInMonth[6]}</option>
-// <option value="7">${daysInMonth[7]}</option>
-// <option value="8">${daysInMonth[8]}</option>
-// <option value="9">${daysInMonth[9]}</option>
-// <option value="10">${daysInMonth[10]}</option>
-// <option value="11">${daysInMonth[11]}</option>
-// <option value="12">${daysInMonth[12]}</option>
-// <option value="13">${daysInMonth[13]}</option>
-// <option value="14">${daysInMonth[14]}</option>
-// <option value="15">${daysInMonth[15]}</option>
-// <option value="16">${daysInMonth[16]}</option>
-// <option value="17">${daysInMonth[17]}</option>
-// <option value="18">${daysInMonth[18]}</option>
-// <option value="19">${daysInMonth[19]}</option>
-// <option value="20">${daysInMonth[20]}</option>
-// <option value="21">${daysInMonth[21]}</option>
-// <option value="22">${daysInMonth[22]}</option>
-// <option value="23">${daysInMonth[23]}</option>
-// <option value="24">${daysInMonth[24]}</option>
-// <option value="25">${daysInMonth[25]}</option>
-// <option value="26">${daysInMonth[26]}</option>
-// <option value="27">${daysInMonth[27]}</option>
-// <option value="28">${daysInMonth[28]}</option>
-// <option value="29">${daysInMonth[29]}</option>
-
-// </select>` 
-// }
-
-
 // function getLocalTime(time){
 //     let UTCTime = new Date()
 //     const offsets = month[time]
@@ -374,6 +338,8 @@ $daySelector.addEventListener('change', function () {
 
 $showdate.addEventListener('click', function () {
     $selectedDate.innerText = futureTime
+
+    $stop.innerHTML = '<button> Stop </button>'
 
     //Local Storage
     localStorage.setItem('date', futureTime)
@@ -411,16 +377,16 @@ $showdate.addEventListener('click', function () {
         const minutes = toMinutes(ms)
         const seconds = Math.floor(ms / 1000)
 
-        const secondsleft = seconds - (minutes) - (hours * 60) - (days * 24)
+        const secondsleft = seconds - (minutes * 60) - (hours * 60 ) - (days * 24 * 60)
 
         return secondsleft
     }
 
-    let TimerCountdown = undefined
+  
 
     TimerCountdown = setInterval(function () {
         difference -= 1000
-        timer.innerHTML = `
+        $timer.innerHTML = `
 <p>day: ${toDays(difference)}</p>
 <br> </br>
 <p>hours: ${toHours(difference)}</p>
@@ -431,4 +397,12 @@ $showdate.addEventListener('click', function () {
 `
     }, 1000)
 
+})
+
+$stop.addEventListener('click', function(){
+
+    $selectedDate.innerText = ''
+    $timer.innerHTML = ''
+    $stop.innerHTML = ''
+    clearInterval(TimerCountdown)
 })

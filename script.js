@@ -13,7 +13,7 @@ const futureTime = new Date()
 const $selectedDate = document.getElementById('selectedDate')
 const $months = document.getElementById('months')
 
-const year = [2021,2022]
+const year = [2021, 2022]
 const daysInMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 const month = [
     'January',
@@ -33,173 +33,282 @@ const month = [
 const test = document.getElementById('test')
 
 //function to get the timer counting down
-for (let days = 0; days <31; days++){   
+for (let days = 0; days < 31; days++) {
     $daySelector.innerHTML += `<option value="${daysInMonth[days]}">${daysInMonth[days]}</option>`
-    }
-
-function upto31days(){
-for (let days = 0; days <31; days++){   
-$daySelector.innerHTML += `<option value="${daysInMonth[days]}">${daysInMonth[days]}</option>`
 }
+
+function upto31days() {
+    for (let days = 0; days < 31; days++) {
+        $daySelector.innerHTML += `<option value="${daysInMonth[days]}">${daysInMonth[days]}</option>`
+    }
 }
-function upto28days(){
-    for (let days = 0; days <28; days++){
+
+function upto28days() {
+    for (let days = 0; days < 28; days++) {
         $daySelector.innerHTML += `<option value="${daysInMonth[days]}">${daysInMonth[days]}</option>`
-        }
-        }
+    }
+}
 
 
-function upto29days(){
-    for (let days = 0; days <29; days++){
+function upto29days() {
+    for (let days = 0; days < 29; days++) {
         $daySelector.innerHTML += `<option value="${daysInMonth[days]}">${daysInMonth[days]}</option>`
-        }
-        }
+    }
+}
 
-function upto30days(){
-for (let days = 0; days <30; days++){
-    
-    $daySelector.innerHTML += `<option value="${daysInMonth[days]}">${daysInMonth[days]}</option>`
+function upto30days() {
+    for (let days = 0; days < 30; days++) {
+
+        $daySelector.innerHTML += `<option value="${daysInMonth[days]}">${daysInMonth[days]}</option>`
     }
-    }
+}
 
 $monthSelector.addEventListener('change', function () {
     switch ($monthSelector.value) {
-       //January
+        //January
         case 'January':
-          
+
             // futureTime.setMonth(0)
-            futureTime.setFullYear(2022,0)
+            futureTime.setFullYear(2022, 0)
             $daySelector.innerHTML = ` `
             upto31days()
             break
-//February
+            //February
         case 'February':
-           
+
             // futureTime.setMonth(1)
-            futureTime.setFullYear(2022,1)
-            $daySelector.innerHTML = ` ` 
+            futureTime.setFullYear(2022, 1)
+            $daySelector.innerHTML = ` `
             upto28days()
             break
-//March
+            //March
         case 'March':
-     
+
             // futureTime.setMonth(2)
-            futureTime.setFullYear(2022,2)
-            $daySelector.innerHTML = ` ` 
+            futureTime.setFullYear(2022, 2)
+            $daySelector.innerHTML = ` `
             upto31days()
             break
-//April
+            //April
         case 'April':
-            
+
             // futureTime.setMonth(3)
-            futureTime.setFullYear(2022,3)
-            $daySelector.innerHTML = ` ` 
-            upto30days()
-            break
-//May
-        case 'May':
-       
-            // futureTime.setMonth(4)
-            futureTime.setFullYear(2022,4)
+            futureTime.setFullYear(2022, 3)
             $daySelector.innerHTML = ` `
-            upto31days() 
+            upto30days()
             break
-//June
+            //May
+        case 'May':
+
+            // futureTime.setMonth(4)
+            futureTime.setFullYear(2022, 4)
+            $daySelector.innerHTML = ` `
+            upto31days()
+            break
+            //June
         case 'June':
-           
+
             // futureTime.setMonth(5)
-            futureTime.setFullYear(2022,5)
-            $daySelector.innerHTML = ` ` 
+            futureTime.setFullYear(2022, 5)
+            $daySelector.innerHTML = ` `
             upto30days()
             break
-//July
+            //July
         case 'July':
-    
+
             // futureTime.setMonth(6)
-            futureTime.setFullYear(2022,6)
-            $daySelector.innerHTML = ` ` 
-            upto31days() 
+            futureTime.setFullYear(2022, 6)
+            $daySelector.innerHTML = ` `
+            upto31days()
             break
-//August
+            //August
         case 'August':
-       
+
             // futureTime.setMonth(7)
-            futureTime.setFullYear(2022,7)
-            $daySelector.innerHTML = ` ` 
-            upto31days() 
+            futureTime.setFullYear(2022, 7)
+            $daySelector.innerHTML = ` `
+            upto31days()
             break
-//September
+            //September
         case 'September':
-            
+
             // futureTime.setMonth(8)
-            futureTime.setFullYear(2022,8)
-            $daySelector.innerHTML = ` ` 
+            futureTime.setFullYear(2022, 8)
+            $daySelector.innerHTML = ` `
             upto30days()
             break
-//October
+            //October
         case 'October':
-   
+
             // futureTime.setMonth(9)
-            futureTime.setFullYear(2022,9)
-            $daySelector.innerHTML = ` ` 
+            futureTime.setFullYear(2022, 9)
+            $daySelector.innerHTML = ` `
             upto31days()
             console.log(futureTime.getDate())
 
             break
-//November
+            //November
         case 'November':
-         
-            futureTime.setFullYear(2022,10)
-            $daySelector.innerHTML = ` ` 
-               upto30days()
+
+            futureTime.setFullYear(2022, 10)
+            $daySelector.innerHTML = ` `
+            upto30days()
             // futureTime.setMonth(10)
-              console.log(futureTime.getDate())    
+            console.log(futureTime.getDate())
             break
-//December
+            //December
         case 'December':
-            
-           
-            futureTime.setFullYear(2021,11,1)
-            $daySelector.innerHTML = ` ` 
-             upto30days()
+
+
+            futureTime.setFullYear(2021, 11, 1)
+            $daySelector.innerHTML = ` `
+            upto30days()
             // futureTime.setMonth(11)
             console.log(futureTime.getDate())
             break
     }
-  
+
 })
 
-$daySelector.addEventListener('change', function(){
-    switch ($daySelector.value){
+$daySelector.addEventListener('change', function () {
+    switch ($daySelector.value) {
         case '0':
-            futureTime.setDate(1)
-          
-            break 
+            futureTime.setDate(0)
+            break
 
-            case '1':
-                futureTime.setDate(2)
-              
-                break 
-                
-                case '2':
-                    futureTime.setDate(3)
-                  
-                    break 
-                    case '3':
-                        futureTime.setDate(4)
-                      
-                        break 
-                        case '4':
-                            futureTime.setDate(5)
-                          
-                            break 
+        case '1':
+            futureTime.setDate(1)
+            break
+
+        case '2':
+            futureTime.setDate(2)
+            break
+
+        case '3':
+            futureTime.setDate(3)
+            break
+
+        case '4':
+            futureTime.setDate(4)
+            break
+
+        case '5':
+            futureTime.setDate(5)
+            break
+
+        case '6':
+            futureTime.setDate(6)
+            break
+
+        case '7':
+            futureTime.setDate(7)
+            break
+
+        case '8':
+            futureTime.setDate(8)
+            break
+
+        case '9':
+            futureTime.setDate(9)
+            break
+
+        case '10':
+            futureTime.setDate(10)
+            break
+
+        case '11':
+            futureTime.setDate(11)
+            break
+
+        case '12':
+            futureTime.setDate(12)
+            break
+
+        case '13':
+            futureTime.setDate(13)
+            break
+
+        case '14':
+            futureTime.setDate(14)
+            break
+
+        case '15':
+            futureTime.setDate(15)
+            break
+
+        case '16':
+            futureTime.setDate(16)
+            break
+
+        case '17':
+            futureTime.setDate(17)
+            break
+
+        case '18':
+            futureTime.setDate(18)
+            break
+
+        case '19':
+            futureTime.setDate(19)
+            break
+
+        case '20':
+            futureTime.setDate(20)
+            break
+
+        case '21':
+            futureTime.setDate(21)
+            break
+
+        case '22':
+            futureTime.setDate(22)
+            break
+
+        case '23':
+            futureTime.setDate(23)
+            break
+
+
+        case '24':
+            futureTime.setDate(24)
+            break
+
+        case '25':
+            futureTime.setDate(25)
+            break
+
+        case '26':
+            futureTime.setDate(26)
+            break
+
+        case '27':
+            futureTime.setDate(27)
+            break
+
+            case '28':
+                futureTime.setDate(28)
+                break
+    
+            case '29':
+                futureTime.setDate(29)
+                break
+    
+            case '30':
+                futureTime.setDate(30)
+                break
+               
+                case '31':
+                    futureTime.setDate(31)
+                    break
+
+
     }
 })
 
 
 
 // function upto29days (){
-    
+
 //  $daySelector.innerHTML = `<select id="daySelector">
 // <option value="0">${daysInMonth[0]}</option>
 // <option value="1">${daysInMonth[1]}</option>
@@ -263,55 +372,55 @@ $daySelector.addEventListener('change', function(){
 // }
 
 
-$showdate.addEventListener('click', function(){
+$showdate.addEventListener('click', function () {
     $selectedDate.innerText = futureTime
-   
-//Local Storage
-localStorage.setItem('date',futureTime)
 
-let differentdate = 0
+    //Local Storage
+    localStorage.setItem('date', futureTime)
 
-let difference = futureTime.getTime() - today.getTime()
+    let differentdate = 0
 
-function toDays(ms) {
-    return Math.floor(ms / 1000 / 60 / 60 / 24)
-}
+    let difference = futureTime.getTime() - today.getTime()
 
-function toHours(ms) {
-    const days = toDays(ms)
-    const hours = Math.floor(ms / 1000 / 60 / 60)
-    const hoursLeft = hours - (days * 24)
+    function toDays(ms) {
+        return Math.floor(ms / 1000 / 60 / 60 / 24)
+    }
 
-    return hoursLeft
-}
+    function toHours(ms) {
+        const days = toDays(ms)
+        const hours = Math.floor(ms / 1000 / 60 / 60)
+        const hoursLeft = hours - (days * 24)
 
-function toMinutes(ms) {
-    const days = toDays(ms)
-    const hours = toHours(ms)
-    const minutes = Math.floor(ms / 1000 / 60)
+        return hoursLeft
+    }
 
-    const minutesLeft = minutes - (hours * 60) - (days * 24 * 60)
+    function toMinutes(ms) {
+        const days = toDays(ms)
+        const hours = toHours(ms)
+        const minutes = Math.floor(ms / 1000 / 60)
 
-    return minutesLeft
+        const minutesLeft = minutes - (hours * 60) - (days * 24 * 60)
 
-}  
+        return minutesLeft
 
-function toSeconds(ms){
-    const days = toDays(ms)
-    const hours = toHours(ms)
-    const minutes = toMinutes(ms)
-    const seconds = Math.floor(ms / 1000)
+    }
 
-    const secondsleft = seconds - (minutes) - (hours * 60) - (days * 24)
+    function toSeconds(ms) {
+        const days = toDays(ms)
+        const hours = toHours(ms)
+        const minutes = toMinutes(ms)
+        const seconds = Math.floor(ms / 1000)
 
-return secondsleft 
-}
+        const secondsleft = seconds - (minutes) - (hours * 60) - (days * 24)
 
-let TimerCountdown = undefined
+        return secondsleft
+    }
 
-TimerCountdown = setInterval(function(){
-    difference -= 1000
-   timer.innerHTML = `
+    let TimerCountdown = undefined
+
+    TimerCountdown = setInterval(function () {
+        difference -= 1000
+        timer.innerHTML = `
 <p>day: ${toDays(difference)}</p>
 <br> </br>
 <p>hours: ${toHours(difference)}</p>
@@ -320,19 +429,6 @@ TimerCountdown = setInterval(function(){
 <br> </br>
 <p>seconds: ${toSeconds(difference)}</p>
 `
-}, 1000)
+    }, 1000)
 
 })
-
-
-
-
-  
-  
-
-
-
-
-
-
-

@@ -372,14 +372,12 @@ $showdate.addEventListener('click', function () {
     }
 
     function toSeconds(ms) {
-        const days = toDays(ms)
-        const hours = toHours(ms)
-        const minutes = toMinutes(ms)
-        const seconds = Math.floor(ms / 1000)
 
-        const secondsleft = seconds - (minutes * 60) - (hours * 60 ) - (days * 24 * 60)
+        const seconds = Math.floor((ms % (1000 * 60)) / 1000)
 
-        return secondsleft
+
+
+        return seconds
     }
 
   
@@ -387,13 +385,13 @@ $showdate.addEventListener('click', function () {
     TimerCountdown = setInterval(function () {
         difference -= 1000
         $timer.innerHTML = `
-<p>day: ${toDays(difference)}</p>
+<p>day: ${toDays(difference)}d</p>
 <br> </br>
-<p>hours: ${toHours(difference)}</p>
+<p>hours: ${toHours(difference)}h</p>
 <br> </br>
-<p>minutes: ${toMinutes(difference)}</p>
+<p>minutes: ${toMinutes(difference)}m</p>
 <br> </br>
-<p>seconds: ${toSeconds(difference)}</p>
+<p>seconds: ${toSeconds(difference)}s</p>
 `
     }, 1000)
 
@@ -406,3 +404,7 @@ $stop.addEventListener('click', function(){
     $stop.innerHTML = ''
     clearInterval(TimerCountdown)
 })
+
+function initialize(){
+   const storedDate = localStorage.getItem('date') 
+}

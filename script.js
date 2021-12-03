@@ -6,8 +6,8 @@ const $form = document.getElementById('form')
 const $timer = document.getElementById('timer')
 const $showdate = document.getElementById('showdate')
 const $stop = document.getElementById('stop')
-const $stopTimer = document.getElementById('stopTimer')
-
+const $endTimer = document.getElementById('endTimer')
+const $endTimerText = document.getElementById('endTimerText')
 
 const today = new Date()
 const futureTime = new Date()
@@ -70,32 +70,28 @@ $monthSelector.addEventListener('change', function () {
     switch ($monthSelector.value) {
         //January
         case 'January':
-
-            // futureTime.setMonth(0)
             futureTime.setFullYear(2022, 0)
             $daySelector.innerHTML = ` `
             upto31days()
             break
+          
             //February
         case 'February':
 
-            // futureTime.setMonth(1)
             futureTime.setFullYear(2022, 1)
             $daySelector.innerHTML = ` `
             upto28days()
             break
+            
             //March
         case 'March':
-
-            // futureTime.setMonth(2)
             futureTime.setFullYear(2022, 2)
             $daySelector.innerHTML = ` `
             upto31days()
             break
+
             //April
         case 'April':
-
-            // futureTime.setMonth(3)
             futureTime.setFullYear(2022, 3)
             $daySelector.innerHTML = ` `
             upto30days()
@@ -103,7 +99,7 @@ $monthSelector.addEventListener('change', function () {
             //May
         case 'May':
 
-            // futureTime.setMonth(4)
+         
             futureTime.setFullYear(2022, 4)
             $daySelector.innerHTML = ` `
             upto31days()
@@ -111,7 +107,7 @@ $monthSelector.addEventListener('change', function () {
             //June
         case 'June':
 
-            // futureTime.setMonth(5)
+       
             futureTime.setFullYear(2022, 5)
             $daySelector.innerHTML = ` `
             upto30days()
@@ -119,7 +115,7 @@ $monthSelector.addEventListener('change', function () {
             //July
         case 'July':
 
-            // futureTime.setMonth(6)
+        
             futureTime.setFullYear(2022, 6)
             $daySelector.innerHTML = ` `
             upto31days()
@@ -127,7 +123,7 @@ $monthSelector.addEventListener('change', function () {
             //August
         case 'August':
 
-            // futureTime.setMonth(7)
+      
             futureTime.setFullYear(2022, 7)
             $daySelector.innerHTML = ` `
             upto31days()
@@ -135,7 +131,6 @@ $monthSelector.addEventListener('change', function () {
             //September
         case 'September':
 
-            // futureTime.setMonth(8)
             futureTime.setFullYear(2022, 8)
             $daySelector.innerHTML = ` `
             upto30days()
@@ -143,7 +138,6 @@ $monthSelector.addEventListener('change', function () {
             //October
         case 'October':
 
-            // futureTime.setMonth(9)
             futureTime.setFullYear(2022, 9)
             $daySelector.innerHTML = ` `
             upto31days()
@@ -156,18 +150,13 @@ $monthSelector.addEventListener('change', function () {
             futureTime.setFullYear(2022, 10)
             $daySelector.innerHTML = ` `
             upto30days()
-            // futureTime.setMonth(10)
-            console.log(futureTime.getDate())
             break
             //December
         case 'December':
 
-
-            futureTime.setFullYear(2021, 11, 1)
+            futureTime.setFullYear(2022, 11)
             $daySelector.innerHTML = ` `
-            upto30days()
-            // futureTime.setMonth(11)
-            console.log(futureTime.getDate())
+            upto31days()
             break
     }
 
@@ -310,16 +299,19 @@ $daySelector.addEventListener('change', function () {
 
 
 
+
 //For the timer, I used a bit of W3school and combined it with what we did for that lecture.
 
+
+
 $showdate.addEventListener('click', function () {
-    $selectedDate.innerText = futureTime
+    $selectedDate.innerText = futureTime.toDateString()
 
-
+if (futureTime <0){
+    console.log('booo')
+}
     //Local Storage
     localStorage.setItem('date', futureTime)
-
-    let differentdate = 0
 
     let difference = futureTime.getTime() - today.getTime()
 
@@ -339,7 +331,6 @@ $showdate.addEventListener('click', function () {
         const days = toDays(ms)
         const hours = toHours(ms)
         const minutes = Math.floor(ms / 1000 / 60)
-
         const minutesLeft = minutes - (hours * 60) - (days * 24 * 60)
 
         return minutesLeft
@@ -347,11 +338,7 @@ $showdate.addEventListener('click', function () {
     }
 
     function toSeconds(ms) {
-
         const seconds = Math.floor((ms % (1000 * 60)) / 1000)
-
-
-
         return seconds
     }
 
@@ -359,10 +346,12 @@ $showdate.addEventListener('click', function () {
 
     TimerCountdown = setInterval(function () {
         difference -= 1000
-        $timer.innerHTML = `
-<p>day: ${toDays(difference)}d</p>
+        
 
-<p>hours: ${toHours(difference)}h</p>
+        $timer.innerHTML = `
+<p>day:     ${toDays(difference)}d</p>
+
+<p>hours:   ${toHours(difference)}h</p>
 
 <p>minutes: ${toMinutes(difference)}m</p>
 
@@ -376,11 +365,22 @@ $stop.addEventListener('click', function(){
 
     $selectedDate.innerText = ''
     $timer.innerHTML = ''
-    
-    
     clearInterval(TimerCountdown)
 })
 
-function initialize(){
-   const storedDate = localStorage.getItem('date') 
-}
+$endTimer.addEventListener('click', function(){ 
+    clearInterval(TimerCountdown)
+
+    $endTimerText.innerHTML = `<p> Countdown Done! <p/>`
+    $timer.innerHTML = `
+    <p>day:     0</p>
+    
+    <p>hours:   0</p>
+    
+    <p>minutes: 0</p>
+    
+    <p>seconds: 0</p>
+    `
+})
+
+

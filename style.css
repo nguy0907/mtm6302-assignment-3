@@ -119,3 +119,15 @@ select{
 	margin-bottom: -1rem;
 }
 
+
+@media screen and (min-width:800px){
+	#timer{
+		margin-left:3rem;
+
+	}
+
+	#timer>p{
+		display: inline-block;
+		margin-right:3rem;
+	}
+}

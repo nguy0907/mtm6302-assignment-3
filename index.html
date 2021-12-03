@@ -22,8 +22,6 @@
     <div id='container'>
         <form id='form'>
 
-            <select id="daySelector"></select>
-
             <select id="monthSelector">
                 <option value="January">January</option>
                 <option value="February">February</option>
@@ -39,8 +37,9 @@
                 <option value="December">December</option>
             </select>
 
+ <select id="daySelector"></select>
+
             <select id="yearSelector">
-                <option value="2021">2021</option>
                 <option value="2022">2022</option>
             </select>
 
@@ -48,10 +47,17 @@
 
         <p id='selectedDate'></p>
         <div id='timer'>
-            <p id='timerText'></p>
-        </div>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        </div> 
+        
+        <p id='endTimerText'></p>
+        
         <button id='showdate'>Show Date</button>
         <button id='stop'> Stop </button>
+        <button id='endTimer'> End Timer </button>
         <div id='restart'></div>
 
 

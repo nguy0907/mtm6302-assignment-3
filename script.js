@@ -315,7 +315,6 @@ $daySelector.addEventListener('change', function () {
 $showdate.addEventListener('click', function () {
     $selectedDate.innerText = futureTime
 
-    $stop.innerHTML = '<button> Stop </button>'
 
     //Local Storage
     localStorage.setItem('date', futureTime)
@@ -362,11 +361,11 @@ $showdate.addEventListener('click', function () {
         difference -= 1000
         $timer.innerHTML = `
 <p>day: ${toDays(difference)}d</p>
-<br> </br>
+
 <p>hours: ${toHours(difference)}h</p>
-<br> </br>
+
 <p>minutes: ${toMinutes(difference)}m</p>
-<br> </br>
+
 <p>seconds: ${toSeconds(difference)}s</p>
 `
     }, 1000)

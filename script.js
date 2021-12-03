@@ -376,7 +376,8 @@ $stop.addEventListener('click', function(){
 
     $selectedDate.innerText = ''
     $timer.innerHTML = ''
-    $stop.innerHTML = ''
+    
+    
     clearInterval(TimerCountdown)
 })
 

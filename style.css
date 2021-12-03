@@ -94,19 +94,23 @@ button{
 	margin-top:3rem;
 	display: block;
 	padding: 0.5rem;
-	width:30%;
+	width:40%;
 }
 
 #stop{
-	width:30%;
+	width:40%;
 }
 
 select{
 	display: block;
 	margin: auto;
+	border-color: red;
+	border-radius: 15px;
 	width:40%;
 	height:30px;
 	margin-bottom:1rem;
+	padding-left:1em;
+	padding-right:1em;
 
 }
 

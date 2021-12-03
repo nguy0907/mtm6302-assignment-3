@@ -74,6 +74,8 @@ h1{
 
 h2{
 	margin-top: 2rem;
+	margin-left:3rem;
+	margin-right:3rem;
 	margin-bottom:-1rem;
 }
 
@@ -94,11 +96,12 @@ button{
 	margin-top:3rem;
 	display: block;
 	padding: 0.5rem;
-	width:40%;
+	width:160px;
 }
 
 #stop{
-	width:40%;
+	width:160px;
+	margin-bottom:7rem;
 }
 
 select{
@@ -115,15 +118,19 @@ select{
 }
 
 
-#showdate{
-	margin-bottom: -1rem;
-}
 
 
-@media screen and (min-width:800px){
+@media screen and (min-width:850px){
 	#timer{
 		margin-left:3rem;
 
+	}
+	#buttonOptions{
+margin-left: 3rem;
+}
+	button{
+		display: inline-block;
+		margin-right: 3rem;
 	}
 
 	#timer>p{

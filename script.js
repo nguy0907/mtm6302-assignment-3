@@ -1,3 +1,4 @@
+//Data
 const $container = document.getElementById('container')
 const $monthSelector = document.getElementById('monthSelector')
 const $daySelector = document.getElementById('daySelector')
@@ -9,13 +10,13 @@ const $stop = document.getElementById('stop')
 const $endTimer = document.getElementById('endTimer')
 const $endTimerText = document.getElementById('endTimerText')
 
+//Date
 const today = new Date()
 const futureTime = new Date()
 
 
 const $selectedDate = document.getElementById('selectedDate')
 const $months = document.getElementById('months')
-
 const year = [2021, 2022]
 const daysInMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
 
@@ -53,6 +54,7 @@ function upto30days() {
     }
 }
 
+//Month selector using the switch.
 $monthSelector.addEventListener('change', function () {
     switch ($monthSelector.value) {
         //January
@@ -145,6 +147,7 @@ $monthSelector.addEventListener('change', function () {
 
 })
 
+//Day selector using switch
 $daySelector.addEventListener('change', function () {
     switch ($daySelector.value) {
         case '0':
@@ -295,7 +298,6 @@ $showdate.addEventListener('click', function () {
     localStorage.setItem('date', futureTime)
 
 
-   
 
     function toDays(ms) {
         return Math.floor(ms / 1000 / 60 / 60 / 24)

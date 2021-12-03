@@ -18,20 +18,7 @@ const $months = document.getElementById('months')
 
 const year = [2021, 2022]
 const daysInMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
-const month = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'august',
-    'September',
-    'October',
-    'November',
-    'December'
-]
+
 
 const test = document.getElementById('test')
 
@@ -96,64 +83,60 @@ $monthSelector.addEventListener('change', function () {
             $daySelector.innerHTML = ` `
             upto30days()
             break
+           
             //May
         case 'May':
-
-         
             futureTime.setFullYear(2022, 4)
             $daySelector.innerHTML = ` `
             upto31days()
             break
+          
             //June
-        case 'June':
-
-       
+        case 'June':  
             futureTime.setFullYear(2022, 5)
             $daySelector.innerHTML = ` `
             upto30days()
             break
+           
             //July
         case 'July':
-
-        
             futureTime.setFullYear(2022, 6)
             $daySelector.innerHTML = ` `
             upto31days()
             break
+         
             //August
         case 'August':
-
-      
             futureTime.setFullYear(2022, 7)
             $daySelector.innerHTML = ` `
             upto31days()
             break
+         
             //September
         case 'September':
-
             futureTime.setFullYear(2022, 8)
             $daySelector.innerHTML = ` `
             upto30days()
             break
+          
             //October
         case 'October':
-
             futureTime.setFullYear(2022, 9)
             $daySelector.innerHTML = ` `
             upto31days()
             console.log(futureTime.getDate())
 
             break
+          
             //November
         case 'November':
-
             futureTime.setFullYear(2022, 10)
             $daySelector.innerHTML = ` `
             upto30days()
             break
+           
             //December
         case 'December':
-
             futureTime.setFullYear(2022, 11)
             $daySelector.innerHTML = ` `
             upto31days()
@@ -303,17 +286,16 @@ $daySelector.addEventListener('change', function () {
 //For the timer, I used a bit of W3school and combined it with what we did for that lecture.
 
 
-
 $showdate.addEventListener('click', function () {
     $selectedDate.innerText = futureTime.toDateString()
 
-if (futureTime <0){
-    console.log('booo')
-}
-    //Local Storage
+ let difference = futureTime.getTime() - today.getTime()
+    
+ //Local Storage 
     localStorage.setItem('date', futureTime)
 
-    let difference = futureTime.getTime() - today.getTime()
+
+   
 
     function toDays(ms) {
         return Math.floor(ms / 1000 / 60 / 60 / 24)
